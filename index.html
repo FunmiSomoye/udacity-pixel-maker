@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content=="Funmi Somoye , fsomoye@gmail.com">
+    <meta name="description" content="A Pixel Art Maker">
+
+    <title>Pixel Art Maker!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+    
+        <div class="my-heading">
+            <h1>Lab: Pixel Art Maker</h1>
+        </div>
+
+        <div class="navigation">
+
+            <div class="form-header">
+                <h3>Choose Your Grid Size</h3>
+            </div>
+
+            <form class="my-form" id="size-picker">
+
+                <div class="grid-size">
+                    <label for="input-height" class="input-labels">Grid height</label>
+                    <input type="number" class="inputs" id="input-height" name="height" min="1" value="0" autofocus required>
+                </div>
+
+                <div class="grid-size">
+                    <label for="input-width" class="input-labels">Grid width</label>
+                    <input type="number" class="inputs" id="input-width" name="width" min="1" value="0" required>
+                </div>
+
+                <div class="form-buttons"> 
+                    <button class="submit" type="submit" nofocus>Create Grid</button>
+                    <button class="reset" type="reset">Reset Grid</button>
+                </div>
+
+            </form>
+
+            <div class="color-area">
+                <div class="pick-color">
+                    <label for="color-picker" class="color-label">Pick A Color</label>
+                    <input type="color" value="#ff8c00" id="color-picker">
+                </div>
+
+                <button id="clear-color-button" class="clear-color">Clear All Color</button>
+            </div>
+
+        </div>
+
+        
+        <div class="my-canvas">
+
+            <h2 class="canvas-header">Design Canvas</h2>
+
+            <div class="view-size">
+                <input class="zoom-slider" id="zoom" type="range" min="0" max="2" value="0">
+            </div>
+
+            <div class="zoom-table">
+                <table id="pixel-canvas"></table>
+            </div>
+
+        </div>
+
+
+        <div class="credits">
+            <footer>Copyright &copy; 2018. Funmi Somoye. Udacity Final Project. All Rights Reserved</footer>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script src="./js/designs.js"></script>
+</html>

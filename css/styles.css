@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway');
+/* CSS Style Sheet for PixelArt Maker */
+
+/* Use CSS Grid Layout to style the entire web page for Responsive Design */
+
+/* Most dimensions are based on Relative Units 
+- View Port and Percentages for Responsive Design */
+
+/* View port calculation references
+Font Calculation Reference: http://emilolsson.com/tools/vw-unit-calc-an-online-responsive-css-font-size-calculator/ 
+Element Calculation Reference: http://pxtovh.com/  and  http://pxtovw.com/ */
+
+/* CSS codes arrangement is based on Grid Area */
+
+/* Recommended for proper Grid styling, 
+so that padding does not affect Element sizes */
+
+* {
+    -webkit-box-sizing: border-box;
+    /* For Safari browsers */
+    -moz-box-sizing: border-box;
+    /* For Mozilla Firefox */
+    box-sizing: border-box;
+    /* Covers Chrome */
+}
+
+html {
+    /* Make the page expand to the full width of the content */
+    height: 100%;
+}
+
+/* Fill Browser window */
+
+html,
+body {
+    font-family: "Montserrat",sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* CSS GRID SETTINGS */
+
+/* Body */
+
+/* 
+    * This is the default Media Styling 
+    * It is intended would cover all screen areas except where otherwise stated
+    * It"s Limit is Screen min width = 768px
+*/
+
+.container {
+    display: grid;
+    /* Sets for grid layout */
+    /* Define grid areas */
+    /* Four rows decided because I don"t want the Grid Selectors 
+    and the Color Picker to fill the entire grid page when the table is created */
+    grid-template-areas: "header header" "nav article" "nav article" "footer footer";
+    /* Ensure view port based on screen size */
+    /* Using Max-height and max-width to ensure no horizontal scrolling of webpage */
+    grid-template-columns: 230px auto;
+    grid-column-gap: 20px;
+    /* The first column should only be 17%. Second Column takes remaining Space */
+    grid-template-rows: 13.03vh auto auto 5.61vh;
+    background-color: #dcdcdc;
+    /* Gainsboro (Grey)*/
+    height: 100%;
+}
+
+/* GRID TEMPLATE AREAS */
+
+/* Grid Template Area - Heading */
+
+.my-heading {
+    grid-area: header;
+    background: white;
+    /* font-family: Monoton; */
+    font-family: 'Raleway', sans-serif;
+    line-height: 60px;
+    padding: 0 10px;
+    font-size: calc(0.5em + 1.30vw);
+    /* Adjust based on screen size. This is the best combo for Responsive */
+    color: #20b2aa;
+    /* Light Sea Green */
+}
+
+/* Grid Template Area - Nav */
+
+/* Covers the Color Picker and the Grid Size Form */
+
+.navigation {
+    grid-area: nav;
+    /* Create Nested Grid for elements */
+    display: grid;
+    overflow: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 180px 150px 1fr;
+    grid-gap: 0.30vh;
+    /* Wrt Grid Area */
+    background-color: #dcdcdc;
+    /* Gainsboro (Grey)*/
+}
+
+/* Form Header*/
+
+.form-header {
+    grid-row: 1;
+    /* take first grid row */
+    font-size: 15px;/*calc(0.6em + 0.80vw);*/
+    text-align: center;
+}
+
+/* Form */
+
+.my-form {
+    /* Targets form elements only, to create another Nested grid */
+    display: grid;
+    grid-row: 2;
+    grid-template-columns: 1fr;
+}
+
+.grid-size {
+    margin: 0 0 0 20px;
+}
+
+/* Form Elements Styling*/
+
+.input-labels {
+    font-size: 15px;
+    /* View port wrt Form */
+}
+
+.inputs {
+    width: 120px;
+    padding: 5px;
+    border: none;
+}
+
+/* Buttons */
+
+/* I used percentage in dimensions directly related to form for responsive design at first.
+View port dimensions work way better. */
+
+button {
+    margin: 10px 0 0 35px;
+    /* Top & left margin, to create space between button and input elements */
+    padding: 1.57vh 0.88vw;
+    border-radius: 5px;
+    border: none;
+    font-size: calc(0.5em + 0.6vw);
+    /* Responsive font size. */
+}
+
+button:hover {
+    color: white;
+    /* Change text colour to white on hover */
+    cursor: pointer;
+    /* Change cursor to pointer on mouse hover */
+}
+
+button:active {
+    box-shadow: 0 0.26vh #888;
+    /* Give a grey box-shadow, 0.26vh, i.e 2px deep */
+    transform: translateY(0.13vh);
+    /* 1px, Y-axis translation when button is clicked */
+}
+
+/* Style Submit button */
+
+.submit {
+    background-color: #00ff7f;
+    /* Spring green */
+    width: 180px;
+}
+
+.submit:hover {
+    background-color: #00fa9a;
+    /* MediumSpring Green */
+}
+
+.submit:active {
+    background-color: #90ee90;
+    /* Light Green */
+}
+
+/* Button to reset Canvas to blank */
+
+.reset {
+    background-color: #e7e7e7;
+    /* Grey */
+    width: 180px;
+}
+
+.reset:hover {
+    background-color: #00ced1;
+    /* DarkTurquoise */
+}
+
+.reset:active {
+    background-color: #2998e4;
+    /* Dodger Blue */
+}
+
+/* Color Area. Not Part of form */
+
+/* Button to clear all colours in canvas */
+
+.clear-color {
+    grid-row: 4;
+    background-color: #fff;
+    /* Grey */
+    width: 180px;
+}
+
+.clear-color:hover,
+.clear-color:active {
+    background-color: #ff8c00;
+    /* Dark Orange */
+}
+
+/* Color Picker */
+
+.pick-color {
+    /* Contain in Nested Grid of .navigation */
+    display: grid dense;
+    /* Dense is to make the label appear close to the color picker */
+    grid-row: 3;
+    margin: 15px 0 0 50px;
+    /* Top & left Margin % of .navigation. For better spacing */
+}
+
+.color-label {
+    font-size: calc(0.6em + 0.60vw);
+}
+
+/* Grid Template Area - Article */
+
+/* Design Canvas */
+
+.my-canvas {
+    grid-area: article;
+    background: white;
+    display: grid;
+    /* Responsive Nested Grid for Table */
+    grid-template-columns: auto;
+    grid-template-rows: 60px auto;
+    grid-template-areas: "canvas-header" "canvas-area";
+}
+
+/* Canvas Header */
+
+.canvas-header {
+    grid-area: canvas-header;
+    text-align: center;
+    /* 0.7 of h2 element default + 1.3vw. Responsive. */
+    font-size: calc(0.7em + 1.30vw);
+}
+
+.zoom-table{
+    grid-area: canvas-area;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Table */
+
+table {
+    border-collapse: collapse;
+    /* We want all borders to collapse to a single border. */
+    margin: 0 auto;
+}
+
+table,
+tr,
+td {
+    border: 2px solid #c0c0c0;
+    /* Silver */
+}
+
+tr {
+    /* height: 2.60vh; */
+    height: 20px ;
+}
+
+td {
+    /* width: 1.48vw;  */
+    width: 20px;
+}
+
+/* The Zoom Range slide */
+
+.view-size {
+    grid: subgrid;
+    position: fixed;
+    /* Scroll with page */
+    align-self: left;
+}
+
+/* The Slider Handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+
+/* The Slider itself */
+
+/* Chrome, et al */
+
+.zoom-slider {
+    -webkit-appearance: none;
+    /* override default css styles */
+    width: 100%;
+    height: 8px;
+    border-radius: 50px;
+    /*calc(1.30vh / 2);  /*5px */
+    background: #d3d3d3;
+    /* grey */
+    outline: none;
+    /* Remove Outline */
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    /* 0.2 seconds transition on hover */
+    transition: opacity 0.2s;
+}
+
+.zoom-slider:hover {
+    opacity: 1;
+    /* show fully */
+}
+
+/* Slider Thumb */
+
+.zoom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    /*1.80vw; */
+    height: 25px;
+    /*3.26vh; */
+    border-radius: 50%;
+    background: #4caf50;
+    /* Green */
+    cursor: pointer;
+}
+
+/* Mozilla */
+
+.zoom-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+/* Grid Template Area - Footer */
+
+.credits {
+    grid-area: footer;
+    background: #4169e1;
+    color: #fafafa;
+    line-height: 5.61vh;
+    text-align: center;
+    font-size: calc(0.3em + 1vw);
+}
+
+/* MEDIA QUERY for Mobile Responsive design */
+
+/* 
+  Device = Low Resolution Tablets, Mobiles (Landscape)
+  Screen = B/w 320px to 767px
+*/
+
+/* Re-style only necessary element attributes */
+
+@media screen and (max-width: 767px) {
+    .container {
+       
+        grid-template-areas: /* I have to reset this so that each area would appear on top each other for all mobile devices */
+        "header" "nav" "article" "footer";
+        grid-template-columns: 100%;
+        grid-template-rows: 70px 220px auto 6vh;
+    }
+
+    .my-heading {
+        font-size: calc(0.35em + 1.25vw);
+        /* Adjust based on screen size. This is the best combo for Responsive */
+    }
+
+    .navigation {
+        grid-area: nav;
+        /* Create Nested Grid for elements */
+        display: block;
+        padding: 0.14vw 0.781vh;
+        background-color: #dcdcdc;
+        /* Gainsboro (Grey)*/
+    }
+
+.my-form {
+    /* Targets form elements only, to create another Nested grid */
+    display: grid;
+    grid-row-gap: 10px;
+    grid-row: 2;
+    grid-template-columns: auto;
+}
+
+    /* Form Header*/
+    .form-header {
+        font-size: calc(0.5em + 1.20vw);
+    }
+
+    .grid-size {
+        display: inline-block;
+    }
+
+    label,
+    input {
+        border-radius: 1px;
+    }
+
+    .input-labels {
+        font-size: calc(0.5em + 1.20vw);
+    }
+
+    .inputs {
+        width: 80%;
+    }
+
+    button {
+        margin: 70px 0 0 0;
+        font-size: calc(0.3em + 1.20vw);
+    }
+
+    .submit {
+        /* I wonder why setting individual width is different button width */
+        width: 30%;
+        margin: 0 0 0 20%;
+    }
+
+    .reset {
+        width: 30%;
+        margin: 0 0 0 2%;
+    }
+
+    .color-area {
+        display: flex;
+        /* Flex worked best to place elements side by side */
+        justify-content: center;
+    }
+
+    /* I don"t think the dialogue is media responsive */
+    .pick-color {
+        margin: 11px 0 0 -10px;
+        /* I don"t want a responsive top margin */
+    }
+
+    .clear-color {
+        width: 30%;
+        height: 10%;
+        margin: 7px 0 0 5%;
+    }
+
+    .view-size {
+        grid: subgrid;
+        position: fixed;
+        /* Scroll with page */
+        align-self: left;
+    }
+}
